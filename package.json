@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/cmcunningham27/Online-Offline-Budget-Trackers/issues"
   },
-  "homepage": "https://github.com/cmcunningham27/Online-Offline-Budget-Trackers#readme"
+  "homepage": "https://github.com/cmcunningham27/Online-Offline-Budget-Trackers#readme",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "express": "^4.17.1",
+    "lite-server": "^2.6.1",
+    "mongoose": "^5.12.13",
+    "morgan": "^1.10.0"
+  }
 }
