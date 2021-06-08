@@ -1,6 +1,7 @@
 {
     "name": "Online/Offline Budget Tracker",
     "short_name": "Budget Tracker App",
+    "description": "An application that allows users to keep track of their account's balance online and offline.",
     "icons": [
         {
             "src": "icons/icon-192x192.png",
