@@ -1,0 +1,11 @@
+{
+    "name": "Online/Offline Budget Tracker",
+    "short_name": "Budget Tracker App",
+    "icons": [
+
+    ],
+    "theme_color": "",
+    "background_color": "",
+    "start_url": "/",
+    "display": "standalone"
+}
