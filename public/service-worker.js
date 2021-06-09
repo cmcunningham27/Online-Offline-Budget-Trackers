@@ -18,6 +18,26 @@ self.addEventListener('install', (event) => {
         caches
             .open(CACHE_NAME)
             .then((cache) => cache.addAll(FILES_TO_CACHE))
-            .then(self.skipWaiting())
+            .then(() => self.skipWaiting())
+    );
+});
+
+////activate, service worker comes to life and cleans up old caches
+self.addEventListener('activate', event => {
+    const currentCaches = [CACHE_NAME, RUNTIME_CACHE];
+    event.waitUntil(
+        caches  
+            .keys()
+            .then((cacheNames) => {
+                return cacheNames.filter((cacheName) => !currentCaches.includes(cacheName));
+            })
+            .then((cachesToDelete) => {
+                return Promise.all(
+                    cachesToDelete.map((cacheToDelete) => {
+                        return caches.delete(cacheToDelete);
+                    })
+                );
+            })
+            .then(() => self.ClientRectList.claim())
     );
 });
