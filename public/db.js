@@ -3,13 +3,14 @@ let db;
 //Opens indexedDB
 const request = indexedDB.open("budget", 1);
 
+//Notifies user when db has been upgraded to a newer version, assigns db a value, and checks to see if there is an Object Store if not then one is created
 request.onupgradeneeded = event => {
     const { oldVersion } = event;
     const newVersion = event.newVersion || db.version;
 
     console.log(`DB Updated from version ${oldVersion} to ${newVersion}`);
 
-    db - event.target.result;
+    db = event.target.result;
 
     if(db.objectStoreNames.length === 0) {
         db.createObjectStore('BudgetStore', {
