@@ -42,7 +42,7 @@ self.addEventListener('activate', event => {
     );
 });
 
-//fetch, listen for certain calls out to API's, if response is good return it, otherwise see if it is in the cache and return it instead of 400
+//fetch, listen for certain calls out to API's, if response is good/cache it and then return it, otherwise see if it is in the cache and return it instead of 400
 self.addEventListener('fetch', (event) => {
     if(event.request.url.startsWith(self.location.origin)) {
         event.respondWith(
