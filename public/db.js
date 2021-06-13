@@ -22,4 +22,9 @@ request.onupgradeneeded = event => {
 //run this code if indexedDB opens successfully
 request.onsuccess = ({target}) => {
     db = target.result;
+
+    //checks if app is online before reading the database
+    if (navigator.onLine) {
+        
+    }
 };
