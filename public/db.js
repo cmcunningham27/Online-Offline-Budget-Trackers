@@ -50,6 +50,12 @@ function checkDatabase() {
                 },
             })
             .then((response) => response.json())
+            .then((res) => {
+                //if our returned response is not empty
+                if(res.length !== 0) {
+                    
+                }
+            })
         }
     }
 }
