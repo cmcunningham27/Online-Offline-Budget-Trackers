@@ -32,4 +32,6 @@ request.onsuccess = ({target}) => {
 function checkDatabase() {
     //open a transaction on BudgetStore database
     const transaction = db.transaction(['BudgetStore'], 'readwrite');
+    //accesses the BudgetStore object store
+    const store = transaction.objectStore('BudgetStore');
 }
