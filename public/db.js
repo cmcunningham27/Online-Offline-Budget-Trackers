@@ -31,6 +31,10 @@ request.onsuccess = ({target}) => {
     }
 };
 
+function saveRecord(record) {
+    
+}
+
 function checkDatabase() {
     //open a transaction on BudgetStore database
     const transaction = db.transaction(['BudgetStore'], 'readwrite');
