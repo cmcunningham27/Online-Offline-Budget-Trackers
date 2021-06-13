@@ -37,7 +37,11 @@ function checkDatabase() {
     //get all records from the store and assign to the variable getAll
     const getAll = store.getAll();
 
+    //on success of getting all records from the store run this function
     getAll.onsuccess = function() {
-        
+        //if the results of getting all the records has a length do a fetch request to POST into the app's mongoDB
+        if (getAll.result.length > 0) {
+
+        }
     }
 }
