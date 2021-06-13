@@ -3,7 +3,9 @@
 
 ## Description:
 An App that allows users to keep track of their budget when online and offline.
-![Screenshot]()
+![Online Screenshot](./public/images/online-record-added.png)
+![Offline Screenshot](./public/images/offline-records-added.png)
+![Missing Info Screenshot](./public/images/missing-info.png)
 
 ## Repository
 [Application Repository URL](https://github.com/cmcunningham27/Online-Offline-Budget-Trackers)
@@ -22,7 +24,9 @@ An App that allows users to keep track of their budget when online and offline.
 To allow users the ability to keep track of their withdrawals and deposits in their account whether they are online or offline. This is done with the use of manifest, service-worker, and indexedDB.
 
 ## How to use
+When online or offline you will enter a name for your deposit or withdrawal where it says "Name of transaction". Then, you will need to enter the amount for that transaction where it says "Transaction Amount". Otherwise, it will tell you there is missing information. If the transaction is a deposit then you will click "+ Add Funds", if it is a withdrawal click "- Subtract Funds". You will see the change in your balance from the current and past transactions below the table of all transactions made. At the very top you will see your remaing budget displayed for you. If you were offline and return to being online, all the data that was saved when offline are now saved into the app's original mongoDB.
 
+- Important part of being offline... if you are looking at you indexedDB's object store called BudgetStore, you may find that your individual records are not being displayed. To fix this issue, go back to the database "budget" in the indexedDB and click the button that says "Refresh Database". Return to the BudgetStore and you will find all records are now displayed. 
 
 ## Link to deployed application:
 [Budget Tracker](https://safe-dawn-19198.herokuapp.com)
