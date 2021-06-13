@@ -31,8 +31,10 @@ request.onsuccess = ({target}) => {
     }
 };
 
+//saves new record to indexedDB
 function saveRecord(record) {
-    
+    //create a transaction on the BudgetStore db with readwrite access
+    const transaction = db.transaction(['BudgetStore'], 'readwrite');
 }
 
 function checkDatabase() {
