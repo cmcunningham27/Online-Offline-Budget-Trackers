@@ -41,7 +41,14 @@ function checkDatabase() {
     getAll.onsuccess = function() {
         //if the results of getting all the records has a length do a fetch request to POST into the app's mongoDB
         if (getAll.result.length > 0) {
-
+            fetch('/api/transaction/bulk', {
+                method: 'POST',
+                body: JSON.stringify(getAll.result),
+                headers: {
+                    Accept: 'application/json, text/plain, */*',
+                    'Content-Type': 'application/json',
+                },
+            })
         }
     }
 }
