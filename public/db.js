@@ -54,6 +54,7 @@ function saveRecord(record) {
 
 //when online grab the records from indexedDB and send to MongoDB
 function checkDatabase() {
+    console.log('Check db invoked');
     //open a transaction on BudgetStore database
     const transaction = db.transaction(['BudgetStore'], 'readwrite');
     //accesses the BudgetStore object store
