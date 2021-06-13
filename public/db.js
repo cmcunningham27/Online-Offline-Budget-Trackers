@@ -55,6 +55,8 @@ function checkDatabase() {
                 if(res.length !== 0) {
                     //open another transaction to BudgetStore with the ability to read and write
                     transaction = db.transaction(['BudgetStore'], 'readwrite');
+                    //assign the current store to a variable
+                    const store = transaction.objectStore('BudgetStore');
                 }
             })
         }
