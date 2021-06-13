@@ -57,6 +57,8 @@ function checkDatabase() {
                     transaction = db.transaction(['BudgetStore'], 'readwrite');
                     //assign the current store to a variable
                     const store = transaction.objectStore('BudgetStore');
+                    //clear existing entries because our bulk add was successful to app's mongoDB
+                    store.clear();
                 }
             })
         }
