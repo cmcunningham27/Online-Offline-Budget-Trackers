@@ -28,3 +28,7 @@ request.onsuccess = ({target}) => {
         checkDatabase();
     }
 };
+
+function checkDatabase() {
+    
+}
