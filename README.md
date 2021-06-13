@@ -11,7 +11,7 @@ An App that allows users to keep track of their budget when online and offline.
 [Application Repository URL](https://github.com/cmcunningham27/Online-Offline-Budget-Trackers)
 
 ## Table of contents
-* [Project's-aim](#project's-aim)
+* [Aim-of-project](#aim-of-project)
 * [How-to-use](#how-to-use)
 * [Link-to-deployed-application](#link-to-deployed-application)
 * [Technologies](#technologies)
@@ -20,7 +20,7 @@ An App that allows users to keep track of their budget when online and offline.
 * [License](#license)
 * [Questions](#questions)
 
-## Project's aim
+## Aim of project
 To allow users the ability to keep track of their withdrawals and deposits in their account whether they are online or offline. This is done with the use of manifest, service-worker, and indexedDB.
 
 ## How to use
