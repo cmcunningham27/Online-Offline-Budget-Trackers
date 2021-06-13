@@ -1,15 +1,18 @@
-//declares db to be changed later
+//declares db and budgetVersion variables for use later
 let db;
-//Opens indexedDB
-const request = indexedDB.open("budget", 1);
+let budgetVersion;
+
+//create a new db request for a "budget" database
+const request = indexedDB.open('budget', budgetVersion || 1);
 
 //Notifies user when db has been upgraded to a newer version, assigns db a value, and checks to see if there is an Object Store if not then one is created
 request.onupgradeneeded = event => {
+    console.log('Upgrade needed in IndexedDB');
+    
     const { oldVersion } = event;
     const newVersion = event.newVersion || db.version;
 
     console.log(`DB Updated from version ${oldVersion} to ${newVersion}`);
-
 
     const db = event.target.result;
 
@@ -44,7 +47,7 @@ function saveRecord(record) {
     const store = transaction.objectStore('BudgetStore');
     //add record to store with add method
     store.add(record);
-}
+};
 
 //when online grab the records from indexedDB and send to MongoDB
 function checkDatabase() {
@@ -78,9 +81,9 @@ function checkDatabase() {
                     //clear existing entries because our bulk add was successful to app's mongoDB
                     store.clear();
                 }
-            })
+            });
         }
-    }
+    };
 };
 
 //listening for app coming back online, and when it is call checkDatabase function
