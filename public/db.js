@@ -32,7 +32,7 @@ request.onerror = function(err) {
 //run this code if indexedDB opens successfully
 request.onsuccess = ({target}) => {
     console.log('Success!');
-    
+
     db = target.result;
 
     //checks if app is online before reading the database
@@ -43,6 +43,7 @@ request.onsuccess = ({target}) => {
 
 //saves new record to indexedDB
 function saveRecord(record) {
+    console.log('Save record invoked!');
     //create a transaction on the BudgetStore db with readwrite access
     const transaction = db.transaction(['BudgetStore'], 'readwrite');
     //access BudgetStore object store
