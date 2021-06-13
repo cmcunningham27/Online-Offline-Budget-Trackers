@@ -10,8 +10,10 @@ request.onupgradeneeded = event => {
 
     console.log(`DB Updated from version ${oldVersion} to ${newVersion}`);
 
+
     const db = event.target.result;
 
+    //if there is no length in database's objectStoreNames then create a new object store
     if(db.objectStoreNames.length === 0) {
         db.createObjectStore('BudgetStore', {
             autoincrement: true
@@ -63,4 +65,7 @@ function checkDatabase() {
             })
         }
     }
-}
+};
+
+//listening for app coming back online, and when it is call checkDatabase function
+window.addEventListener('online', checkDatabase);
