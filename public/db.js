@@ -37,6 +37,8 @@ function saveRecord(record) {
     const transaction = db.transaction(['BudgetStore'], 'readwrite');
     //access BudgetStore object store
     const store = transaction.objectStore('BudgetStore');
+    //add record to store with add method
+    store.add(record);
 }
 
 function checkDatabase() {
