@@ -49,6 +49,7 @@ Project is created with:
 
 ## Challenges
 - To start off with, I wasn't quite confident in my knowledge of indexedDB and it's purpose in this activity. I made sure I gained that understanding before beginning the indexedDB. This proved helpful, as I did not realize, until then, that the indexed DB would be sending its stored data to the app's mongoDB once back online. 
+- A minor challenge I ran into was the fact that my db.js file was not doing anything for my app. Someone helped me realize that we have to create an external script link to it within the HTML like we do for index.js. Adding the external link solved the issue and db.js was now working correctly.
 - I ran into a problem when trying to add a new record to the store in the indexedDB. It kept telling me that indexedDB does not generate its own keys. To fix this I changed .add to .put, declared and assigned a counter variable which was then added as the second parameter in the .put() as an increment with ++. This removed the error and was adding each record to the end of the store's array.
 - At one point I thought I was doing something wrong because the new records I was creating while offline were not displaying in the indexedDB's object store. However, they were being sent to and stored in the mongoDB when I went back online. Trying to understand what I was missing proved to be an issue with indexedDB. If I entered new records and then went to the database in indexedDB, clicked "Refresh Database" I would then ALL the offline records displayed.
 
