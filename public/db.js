@@ -51,9 +51,10 @@ function checkDatabase() {
             })
             .then((response) => response.json())
             .then((res) => {
-                //if our returned response is not empty
+                //if our returned object is not empty
                 if(res.length !== 0) {
-                    
+                    //open another transaction to BudgetStore with the ability to read and write
+                    transaction = db.transaction(['BudgetStore'], 'readwrite');
                 }
             })
         }
