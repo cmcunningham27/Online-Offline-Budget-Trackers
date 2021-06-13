@@ -10,7 +10,7 @@ request.onupgradeneeded = event => {
 
     console.log(`DB Updated from version ${oldVersion} to ${newVersion}`);
 
-    db = event.target.result;
+    const db = event.target.result;
 
     if(db.objectStoreNames.length === 0) {
         db.createObjectStore('BudgetStore', {
