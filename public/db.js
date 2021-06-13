@@ -1,6 +1,8 @@
 //declares db and budgetVersion variables for use later
 let db;
 let budgetVersion;
+//declares and assigns counter variable with 0
+let counter = 0;
 
 //create a new db request for a "budget" database
 const request = indexedDB.open('budget', budgetVersion || 1);
@@ -44,19 +46,22 @@ request.onsuccess = ({target}) => {
 //saves new record to indexedDB
 function saveRecord(record) {
     console.log('Save record invoked!');
+    console.log('record', record);
     //create a transaction on the BudgetStore db with readwrite access
     const transaction = db.transaction(['BudgetStore'], 'readwrite');
+    console.log('transaction', transaction);
     //access BudgetStore object store
     const store = transaction.objectStore('BudgetStore');
-    //add record to store with add method
-    store.add(record);
+    console.log('store', store);
+    //adds the new record at the end of the store array with key adding 1 to the previous one
+    store.put(record, counter++);
 };
 
 //when online grab the records from indexedDB and send to MongoDB
 function checkDatabase() {
     console.log('Check db invoked');
     //open a transaction on BudgetStore database
-    const transaction = db.transaction(['BudgetStore'], 'readwrite');
+    let transaction = db.transaction(['BudgetStore'], 'readwrite');
     //accesses the BudgetStore object store
     const store = transaction.objectStore('BudgetStore');
     //get all records from the store and assign to the variable getAll
