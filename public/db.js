@@ -34,4 +34,6 @@ function checkDatabase() {
     const transaction = db.transaction(['BudgetStore'], 'readwrite');
     //accesses the BudgetStore object store
     const store = transaction.objectStore('BudgetStore');
+    //get all records from the store and assign to the variable getAll
+    const getAll = store.getAll();
 }
