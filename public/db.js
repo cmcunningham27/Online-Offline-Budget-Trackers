@@ -49,6 +49,7 @@ function checkDatabase() {
                     'Content-Type': 'application/json',
                 },
             })
+            .then((response) => response.json())
         }
     }
 }
