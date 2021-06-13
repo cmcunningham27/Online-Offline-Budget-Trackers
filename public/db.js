@@ -21,6 +21,11 @@ request.onupgradeneeded = event => {
     }
 };
 
+//log response when there is an error upon opening indexedDB
+request.onerror = function(err) {
+    console.log(`Whoops! ${err.target.errorCode}`);
+};
+
 //run this code if indexedDB opens successfully
 request.onsuccess = ({target}) => {
     db = target.result;
@@ -41,6 +46,7 @@ function saveRecord(record) {
     store.add(record);
 }
 
+//when online grab the records from indexedDB and send to MongoDB
 function checkDatabase() {
     //open a transaction on BudgetStore database
     const transaction = db.transaction(['BudgetStore'], 'readwrite');
