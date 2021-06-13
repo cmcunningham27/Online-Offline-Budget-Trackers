@@ -136,6 +136,7 @@ function sendTransaction(isAdding) {
     }
   })
   .catch(err => {
+    console.log('You are offline')
     // fetch failed, so save in indexed db
     saveRecord(transaction);
 
