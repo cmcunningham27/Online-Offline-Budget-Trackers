@@ -8,7 +8,7 @@ const request = indexedDB.open('budget', budgetVersion || 1);
 //Notifies user when db has been upgraded to a newer version, assigns db a value, and checks to see if there is an Object Store if not then one is created
 request.onupgradeneeded = event => {
     console.log('Upgrade needed in IndexedDB');
-    
+
     const { oldVersion } = event;
     const newVersion = event.newVersion || db.version;
 
@@ -31,6 +31,8 @@ request.onerror = function(err) {
 
 //run this code if indexedDB opens successfully
 request.onsuccess = ({target}) => {
+    console.log('Success!');
+    
     db = target.result;
 
     //checks if app is online before reading the database
